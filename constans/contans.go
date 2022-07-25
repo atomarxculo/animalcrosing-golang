@@ -12,6 +12,12 @@ var (
 	BkgColor = rl.NewColor(147, 211, 196, 255)
 
 	GrassSprite  rl.Texture2D
+	HillSprite   rl.Texture2D
+	FenceSprite  rl.Texture2D
+	HouseSprite  rl.Texture2D
+	WaterSprite  rl.Texture2D
+	TilledSprite rl.Texture2D
+	Tex          rl.Texture2D
 	PlayerSprite rl.Texture2D
 
 	PlayerSrc                                     rl.Rectangle

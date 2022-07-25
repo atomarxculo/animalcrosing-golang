@@ -13,9 +13,29 @@ func DrawScene() {
 		if con.TileMap[i] != 0 {
 			con.TileDest.X = con.TileDest.Width * float32(i%con.MapW)
 			con.TileDest.Y = con.TileDest.Height * float32(i/con.MapW)
-			con.TileSrc.X = con.TileSrc.Width * float32((con.TileMap[i]-1)%int(con.GrassSprite.Width/int32(con.TileDest.Width)))
-			con.TileSrc.Y = con.TileSrc.Height * float32((con.TileMap[i]-1)/int(con.GrassSprite.Width/int32(con.TileDest.Width)))
-			rl.DrawTexturePro(con.GrassSprite, con.TileSrc, con.TileDest, rl.NewVector2(con.TileDest.Width, con.TileDest.Height), 0, rl.White)
+
+			if con.SrcMap[i] == "g" {
+				con.Tex = con.GrassSprite
+			}
+			if con.SrcMap[i] == "l" {
+				con.Tex = con.HillSprite
+			}
+			if con.SrcMap[i] == "f" {
+				con.Tex = con.FenceSprite
+			}
+			if con.SrcMap[i] == "h" {
+				con.Tex = con.HouseSprite
+			}
+			if con.SrcMap[i] == "w" {
+				con.Tex = con.WaterSprite
+			}
+			if con.SrcMap[i] == "t" {
+				con.Tex = con.TilledSprite
+			}
+
+			con.TileSrc.X = con.TileSrc.Width * float32((con.TileMap[i]-1)%int(con.Tex.Width/int32(con.TileSrc.Width)))
+			con.TileSrc.Y = con.TileSrc.Height * float32((con.TileMap[i]-1)/int(con.Tex.Width/int32(con.TileSrc.Width)))
+			rl.DrawTexturePro(con.Tex, con.TileSrc, con.TileDest, rl.NewVector2(con.TileDest.Width, con.TileDest.Height), 0, rl.White)
 		}
 	}
 
