@@ -23,6 +23,12 @@ var (
 
 	FrameCount int
 
+	TileDest   rl.Rectangle
+	TileSrc    rl.Rectangle
+	TileMap    []int
+	SrcMap     []string
+	MapW, MapH int
+
 	PlayerSpeed float32 = 3
 
 	MusicPaused bool
