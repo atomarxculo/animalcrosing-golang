@@ -3,8 +3,8 @@ package constans
 import rl "github.com/gen2brain/raylib-go/raylib"
 
 const (
-	ScreenWidth  = 1000
-	ScreenHeigth = 480
+	ScreenWidth  = 1280
+	ScreenHeigth = 720
 )
 
 var (
@@ -35,7 +35,7 @@ var (
 	SrcMap     []string
 	MapW, MapH int
 
-	PlayerSpeed float32 = 3
+	PlayerSpeed float32 = 1.4
 
 	MusicPaused bool
 	Music       rl.Music

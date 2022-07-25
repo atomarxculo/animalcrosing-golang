@@ -33,6 +33,12 @@ func DrawScene() {
 				con.Tex = con.TilledSprite
 			}
 
+			if con.SrcMap[i] == "h" || con.SrcMap[i] == "f" {
+				con.TileSrc.X = 0
+				con.TileSrc.Y = 0
+				rl.DrawTexturePro(con.GrassSprite, con.TileSrc, con.TileDest, rl.NewVector2(con.TileDest.Width, con.TileDest.Height), 0, rl.White)
+			}
+
 			con.TileSrc.X = con.TileSrc.Width * float32((con.TileMap[i]-1)%int(con.Tex.Width/int32(con.TileSrc.Width)))
 			con.TileSrc.Y = con.TileSrc.Height * float32((con.TileMap[i]-1)/int(con.Tex.Width/int32(con.TileSrc.Width)))
 			rl.DrawTexturePro(con.Tex, con.TileSrc, con.TileDest, rl.NewVector2(con.TileDest.Width, con.TileDest.Height), 0, rl.White)

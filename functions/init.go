@@ -19,13 +19,15 @@ func Init() {
 	textures()
 
 	con.PlayerSrc = rl.NewRectangle(0, 0, 48, 48)
-	con.PlayerDest = rl.NewRectangle(200, 200, 100, 100)
+	con.PlayerDest = rl.NewRectangle(200, 200, 60, 60)
 
 	initMusic()
 
 	con.Cam = rl.NewCamera2D(rl.NewVector2(float32(con.ScreenWidth/2), float32(con.ScreenHeigth/2)), rl.NewVector2(float32(con.PlayerDest.X-(con.PlayerDest.Width/2)), float32(con.PlayerDest.Y-(con.PlayerDest.Height/2))), 0.0, 1.5)
 
-	loadMap("one.map")
+	con.Cam.Zoom = 3
+
+	loadMap("two.map")
 }
 
 func loadMap(mapFile string) {
@@ -34,7 +36,7 @@ func loadMap(mapFile string) {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	remNewLines := strings.Replace(string(file), "\n", "", -1)
+	remNewLines := strings.Replace(string(file), "\n", " ", -1)
 	sliced := strings.Split(remNewLines, " ")
 	con.MapW = -1
 	con.MapH = -1
@@ -48,7 +50,6 @@ func loadMap(mapFile string) {
 		} else if i < con.MapW*con.MapH+2 {
 			con.TileMap = append(con.TileMap, m)
 		} else {
-			println("llego aqui")
 			con.SrcMap = append(con.SrcMap, sliced[i])
 		}
 	}
